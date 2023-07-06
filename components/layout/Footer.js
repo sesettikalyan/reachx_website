@@ -5,15 +5,15 @@ import Image from 'next/image';
 const Footer = () => {
     return (
         <>
-            <footer className="footer mt-50">
+            <footer className="footer mt-25">
                 <div className="container">
-                    <div className="footer-top">
-                        <div className="row">
+                    {/* <div className="footer-top"> */}
+                        {/* <div className="row">
                             <div className="col-md-4 col-sm-6 text-center text-md-start">
                                 <Link href="/" legacyBehavior>
                                     <a>
-                                        {/* <img alt="Agon" src="/assets/imgs/template/logo.svg" /> */}
-                                        <Image src="/assets/imgs/template/logo.svg" alt="Agon" width={162} height={42}/>
+                                        
+                                        <Image src="/assets/imgs/page/homepage4/img/logo.jpg" alt="Reachx" width={162} height={42}/>
                                     </a>
                                 </Link>
                             </div>
@@ -23,16 +23,25 @@ const Footer = () => {
                                     <a className="btn btn-square">Create an Account</a>
                                 </Link>
                             </div>
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                     <div className="row">
                         <div className="col-lg-3 width-20 mb-30">
-                            <h4 className="text-heading-5">Contact</h4>
-                            <div className="mt-20 text-body-text color-gray-600 mb-20">4517 Washington Ave. Manchester, Kentucky 39495</div>
-                            <div className="mt-20 text-body-text color-gray-600">(239) 555-0108</div>
-                            <div className="text-body-text color-gray-600">contact@agon.com</div>
+                            <h4 className="text-heading-4">Contact:</h4>
+                            <div className="mt-20 text-body-text  mb-20">
+                                <h5 className="ml-10 text-heading-5">Phone Number</h5>
+                                <p className="ml-10 pb-10" style={{
+                                  borderBottom: '3px solid yellow'
+                            }}><b>7013794988, 8008067870</b></p>
+                            </div>
+                            <div className="mt-20 text-body-text  mb-20">
+                                <h5 className="ml-10 text-heading-5">Email Address</h5>
+                                <p className="ml-10 pb-10"><b>thereachxin@gmail.com</b></p>
+                            </div>
+                            
+                          
                         </div>
-                        <div className="col-lg-3 width-20 mb-30">
+                        {/* <div className="col-lg-3 width-20 mb-30">
                             <h4 className="text-heading-5">About Us</h4>
                             <ul className="menu-footer mt-20">
                                 <li>
@@ -166,11 +175,11 @@ const Footer = () => {
                                     </Link>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
+                        </div>*/}
+                    </div> 
                     <div className="footer-bottom mt-20">
                         <div className="row">
-                            <div className="col-md-6">
+                            {/* <div className="col-md-6">
                                 <span className="color-gray-400 text-body-lead">© Agon Official 2022</span>
                                 <Link href="/page-terms" legacyBehavior>
                                     <a className="text-body-text color-gray-400 ml-50">Privacy policy</a>
@@ -181,7 +190,7 @@ const Footer = () => {
                                 <Link href="/page-terms" legacyBehavior>
                                     <a className="text-body-text color-gray-400 ml-50">Terms of service</a>
                                 </Link>
-                            </div>
+                            </div> */}
                             <div className="col-md-6 text-center text-lg-end text-md-end">
                                 <div className="footer-social">
                                     <Link href="https://facebook.com" legacyBehavior>
