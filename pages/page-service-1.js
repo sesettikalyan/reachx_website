@@ -12,7 +12,13 @@ function Service1() {
             
                 <section className="people h-100">
                     <div>
-                        <Link href="/" className="hello">Home</Link>
+                        <Link href="/" style={{
+                            position:'absolute',
+                            textDecoration:'none',
+                            fontSize:'25px',
+                            right:'25px',
+                            top:'20px',
+                        }}>Home</Link>
                     </div>
                     <div className="key-people  d-flex ">
                         <div className="head2" >
