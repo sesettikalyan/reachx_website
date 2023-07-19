@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import axios from 'axios';
 import Layout from "../components/layout/Layout";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +19,7 @@ function Home() {
     const [reopen,setReopen]=useState(false);
     const [rereopen,setRereopen]=useState(false);
     const [close,setClose]=useState(false);
-    
+
      
         const handleClick = () => {
             setOpen((prevOpen) => !prevOpen);
@@ -32,6 +33,28 @@ function Home() {
         const handleClose = () => {
             setClose((prevClose) => !prevClose);
         };
+        const [name,setName]=useState('');
+        const [email,setEmail]=useState('');
+        const [message,setMessage]=useState('');
+        const[number,setNumber]=useState('');
+        const handleSubmit = (e) => {
+            // const formEle = document.querySelector("form");
+            e.preventDefault();
+            // console.log(name,email,message)
+            const data ={
+            Name:name,
+            Email:email,
+            Mobile:number,
+            Message:message
+            }
+            axios.post('https://sheet.best/api/sheets/fb1bd363-ae6d-481b-9a1a-1dad29d77906',data).then((response)=>{
+            console.log(response)
+            setName('');
+            setEmail('');
+            setMessage('');
+            setNumber('');
+            })
+        }
       
     
     return (
@@ -73,23 +96,23 @@ function Home() {
                             <p className="fs-4 pb-25 w-75" style={{
                                 position: 'relative',
                                 borderBottom: '3px solid yellow'
-                            }}> <b>We take a comprehensive and strategic approach to address your unique challenges and drive your business's sustainable growth.</b></p>
-                            <p className="fs-4 pt-50 w-75"> <b>Through strategic planning, tailored solutions, and a focus on key growth drivers, we partner with businesses to help them expand their reach, increase revenue, and maximize their potential.</b></p>
+                            }}> We take a comprehensive and strategic approach to address your unique challenges and drive your business's sustainable growth.</p>
+                            <p className="fs-4 pt-30 w-75"> Through strategic planning, tailored solutions, and a focus on key growth drivers, we partner with businesses to help them expand their reach, increase revenue, and maximize their potential.</p>
                             </div>
                             </div>
                             <div className="p-10">
                                 <h5 >We approach on growth oriented program</h5>
                             </div>
                             <div className="d-flex text-center">
-                                <div className="p-20">
+                                <div className="pl-20 pr-20 pt-20 pb-10">
                                     <h3 className="mb-20"> Research</h3>
                                     <img className ="w-100 h-50" src="/assets/imgs/page/homepage4/img/research.jpeg" alt="" />
                                 </div>
-                                <div className="p-20">
+                                <div className="pl-20 pr-20 pt-20 pb-10">
                                     <h3 className="mb-20">Strategy</h3>
                                     <img className ="w-100 h-50" src="/assets/imgs/page/homepage4/img/strategy.jpeg" alt="" />
                                 </div>
-                                <div className="p-20">
+                                <div className="pl-20 pr-20 pt-20 pb-10">
                                     <h3 className="mb-20">Execution</h3>
                                     <img className ="w-100 h-50" src="/assets/imgs/page/homepage4/img/execution.jpeg" alt="" />
                                 </div>
@@ -103,7 +126,7 @@ function Home() {
                         <div className="head m-auto pl-100 ">
                             <h1 className=" text-heading-1 color-gray-900 mb-30">Services We Tailor</h1>
                         </div>
-                    <div className="collapse-menu d-flex pt-25  pl-25 w-60 pb-50">
+                    <div className="collapse-menu d-flex pt-25  pl-25 w-60 pb-60">
                         
                         <div className="tail1 m-auto bg-warning">
                             <Button className="btn rounded btn-warning  dropdown-toggle" type="button"  onClick={handleClick} variant="link">
@@ -174,10 +197,32 @@ function Home() {
                             </Collapse>
                         </div>
                     </div>
-                        
+                            
                  </section>
-    
-                
+                 <form className="form" onSubmit={handleSubmit}>
+                <div className="d-flex align-items-start">
+                    <h4 className=" color-gray-900 ml-100 mb-30"><b>Tell Us More About Yourself</b></h4>
+                 </div>
+                 <div className="d-flex flex-column ml-130 mr-30">
+                    <div className="pl-10 pb-10 pt-10 w-50" style={{border:'1px solid grey' , borderRadius:'10px '}}>
+                        <label>
+                        <img src="assets/imgs/page/homepage4/person.svg" alt="" /></label>
+                        <input className="m ml-10 w-50 " name="name" required placeholder="Your Name" type="text" onChange={(e)=>setName(e.target.value)} value={name} style={{border:'none'}}/>
+                    </div>
+                    <div className="pl-10 pb-10 pt-10 mt-20 w-50" style={{border:'1px solid grey' , borderRadius:'10px '}}>
+                        <label>
+                        <img src="assets/imgs/page/homepage4/mail.svg" alt="" /></label>
+                        <input  className="m ml-10 w-50" required name="email" placeholder="your@gmail.com" type="email" onChange={(e)=>setEmail(e.target.value)} value={email} style={{border:'none'}} />
+                    </div>
+                    <div className="pl-10 pt-10 pb-10 mt-20 w-50" style={{border:'1px solid grey' , borderRadius:'10px '}}>
+                        <label>
+                        <img src="assets/imgs/page/homepage4/mobile.svg" alt="" /></label>
+                        <input  className="m ml-10 w-50" name="number" placeholder="Mobile Number(optional)" type="mobilenumber" onChange={(e)=>setNumber(e.target.value)} value={number} style={{border:'none'}} />
+                    </div>
+                        <textarea className="m mt-20  w-50" required name="message" placeholder="Your Message" type="text" onChange={(e)=>setMessage(e.target.value)} value={message} style={{border:'1px solid grey' , borderRadius:'10px ',height:'70px'}} />
+                        <input className="button mt-20  w-50" name='submit' type="submit"  style={{border:'1px solid black' , borderRadius:'10px ',height:'30px'}} />
+                </div>
+            </form>
             </Layout>
 
         </>
