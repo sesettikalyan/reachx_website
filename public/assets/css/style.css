@@ -9272,6 +9272,9 @@ input.qty-val {
   .partners4{
     margin-bottom:80px;
   }
+  .footer{
+    width:900px;
+  }
 }
 @media only screen and (max-width:400px){
   .m1{
@@ -9315,3 +9318,7 @@ input.qty-val {
   }
 }
 
+.button:hover{
+  background-color: black;
+  color:whitesmoke;
+}
